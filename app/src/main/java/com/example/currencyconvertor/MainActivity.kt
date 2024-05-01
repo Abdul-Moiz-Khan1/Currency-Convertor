@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                         val exchangeRate: String? = realtimeCurrencyExchangeRate?.to_CurrencyName
                         if (exchangeRate != null) {
                             Log.d("Taggg", exchangeRate.toString())
-                            // Handle exchange rate here
+                            binding.result.text = exchangeRate.toString()
                         } else {
                             // Handle case where exchange rate is null
                             Log.d("Taggg", "Exchange rate is null")
