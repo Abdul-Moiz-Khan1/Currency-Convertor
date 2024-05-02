@@ -7,10 +7,10 @@ import retrofit2.http.Query
 interface ApiInterface {
     @GET("query")
     fun getrates(
-        @Query("function") funtion: String,
-        @Query("from_currency") from: String,
-        @Query("to_currency") to: String,
-        @Query("apikey") api: String
+        @Query("function") function: String,
+        @Query("from_currency") fromCurrency: String,
+        @Query("to_currency") toCurrency: String,
+        @Query("apikey") apiKey: String
 
     ): Call<Response>
 }
