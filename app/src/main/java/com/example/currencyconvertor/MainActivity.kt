@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         var from = "inr"
         var to = "usd"
-        var amount = 1000
         var exchangeRate = "1"
         var rate = 1
 
@@ -73,14 +72,10 @@ class MainActivity : AppCompatActivity() {
     private fun showconversion(rate:String) {
         val ratee = rate.toDouble()
         val ammm = binding.amount.toString()
-        val temp = ammm.toDouble()
+//        val temp = ammm.toInt()
+//        val total = ratee * temp
 
-        binding.result.text = temp.toString()
+        binding.result.text = "some value"
 
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        // Release resources
-        // (Retrofit instance doesn't require explicit shutdown)
     }
 }
