@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                         if (exchangeRate != null) {
                             Log.d("Taggg", exchangeRate)
                             binding.conversionRate.text = exchangeRate
+                            val amount = binding.amount.toString()
                             showconversion(exchangeRate)
                         } else {
                             Log.d("Taggg", "Exchange rate is null")
@@ -64,18 +65,17 @@ class MainActivity : AppCompatActivity() {
 
             })
         }
-
-
-
     }
 
-    private fun showconversion(rate:String) {
-        val ratee = rate.toDouble()
-        val ammm = binding.amount.toString()
-//        val temp = ammm.toInt()
-//        val total = ratee * temp
+    private fun showconversion(rate:String)  {
+//        val am = amount
+//        val toint = am.toDouble()
+//        val ratee = rate.toDouble()
+//        val finrate  = binding.conversionRate.toString()
+//        val toint = finrate.toInt()
+//        val resss =
 
-        binding.result.text = "some value"
+        binding.result.text = (rate.toDouble() * 1000).toString()
 
     }
 }
