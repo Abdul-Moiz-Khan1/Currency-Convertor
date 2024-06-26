@@ -4,139 +4,336 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6151515"
+    android:background="@color/Background"
     tools:context=".MainActivity">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/textback"
-        android:gravity="center"
-        android:text="From"
-        android:textSize="20sp"
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="416dp"
+        android:layout_height="172dp"
+        android:padding="20dp"
+        app:constraint_referenced_ids="cardView,cardView2"
+        app:flow_horizontalGap="20dp"
+        app:flow_verticalGap="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/from"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Pkr"
-        android:inputType="text"
-        android:textColor="#686464"
-        android:textColorHint="#686464"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/textback"
-        android:gravity="center"
-        android:text="To"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/from"
-        app:layout_constraintStart_toStartOf="@+id/from"
-        app:layout_constraintTop_toBottomOf="@+id/from" />
-
-    <EditText
-        android:id="@+id/to"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="USD"
-        android:inputType="text"
-        android:textColor="#686464"
-        android:textColorHint="#686464"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/textback"
-        android:gravity="center"
-        android:text="Amount"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/to"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/to"
-        app:layout_constraintTop_toBottomOf="@+id/to" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-    <EditText
-        android:id="@+id/amount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:inputType="number"
-        android:background="@null"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="1000"
-        android:textColor="#686464"
-        android:textColorHint="#686464"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView22"
-        app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintStart_toStartOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <Button
-        android:id="@+id/convert_btn"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#FF5722"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/button_background"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteY="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/button_background"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From"
+                android:textColor="@color/light_text_color"
+                android:textSize="24sp" />
+
+            <EditText
+
+                android:id="@+id/from"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Pkr"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/button_background"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteY="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/button_background"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:textColor="@color/light_text_color"
+                android:textSize="24sp" />
+
+            <EditText
+
+                android:id="@+id/to"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="USD"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/button_background"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/button_background"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textColor="@color/light_text_color"
+                android:textSize="24sp" />
+
+            <EditText
+
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="100"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/backgrounditem"
         android:text="Convert"
-        android:textColor="#C6393737"
-        app:layout_constraintEnd_toEndOf="@+id/amount"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/amount"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
+        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="temptemp"
-        android:textColor="#D7EFEBEB"
         android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="@+id/convert_btn"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="@+id/convert_btn"
-        app:layout_constraintTop_toBottomOf="@+id/convert_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/convert_button"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/convert_button"
+        app:layout_constraintTop_toBottomOf="@+id/convert_button" />
 
     <TextView
         android:id="@+id/conversion_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textColor="#D7EFEBEB"
+        android:layout_marginTop="16dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/result"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="@+id/result"
         app:layout_constraintTop_toBottomOf="@+id/result" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottiemain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_marginTop="124dp"-->
+<!--        android:background="@drawable/textback"-->
+<!--        android:gravity="center"-->
+<!--        android:text="From"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.501"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/lottiemain"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--    <EditText-->
+<!--        android:id="@+id/from"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="@null"-->
+<!--        android:ems="10"-->
+<!--        android:gravity="center"-->
+<!--        android:hint="Pkr"-->
+<!--        android:inputType="text"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textColorHint="#686464"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@drawable/textback"-->
+<!--        android:gravity="center"-->
+<!--        android:text="To"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/from"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/from"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/from" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/to"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:background="@null"-->
+<!--        android:ems="10"-->
+<!--        android:gravity="center"-->
+<!--        android:hint="USD"-->
+<!--        android:inputType="text"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textColorHint="#686464"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView22"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@drawable/textback"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Amount"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/to"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/to"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/to" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/amount"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="@null"-->
+<!--        android:ems="10"-->
+<!--        android:gravity="center"-->
+<!--        android:hint="1000"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        android:textColorHint="#686464"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView22"-->
+<!--        app:layout_constraintHorizontal_bias="0.913"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView22"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView22" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/convert_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:backgroundTint="#FF5722"-->
+<!--        android:text="Convert"-->
+<!--        android:textColor="#E2DDDD"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/amount"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/amount"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/amount" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/result"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:textColor="#D7EFEBEB"-->
+<!--        android:textSize="36sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/convert_btn"-->
+<!--        app:layout_constraintHorizontal_bias="0.45"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/convert_btn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/convert_btn" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/conversion_rate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:textColor="#D7EFEBEB"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/result"-->
+<!--        app:layout_constraintHorizontal_bias="0.448"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/result"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/result" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

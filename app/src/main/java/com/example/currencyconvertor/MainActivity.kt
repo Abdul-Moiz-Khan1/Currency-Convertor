@@ -3,6 +3,7 @@ package com.example.currencyconvertor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.currencyconvertor.databinding.ActivityMainBinding
 
@@ -14,21 +15,25 @@ import kotlin.time.times
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var apiInterface: ApiInterface
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.lottiemain.visibility = View.INVISIBLE
+
         var from = "inr"
         var to = "usd"
         var exchangeRate = "1"
-        var rate = 1
 
 
-        binding.convertBtn.setOnClickListener {
+        binding.convertButton.setOnClickListener {
+
+            binding.lottiemain.visibility = View.VISIBLE
+            binding.lottiemain.setAnimation(R.raw.money_rain)
+
             from = binding.to.text.toString()
             to = binding.from.text.toString()
 
@@ -41,13 +46,14 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(p0: Call<Response>, p1: retrofit2.Response<Response>) {
                     val responseBody = p1.body()
                     if (p1.isSuccessful && responseBody != null) {
+                        binding.lottiemain.playAnimation()
                         exchangeRate =
                             responseBody.RealtimeCurrencyExchange?.ExchangeRate.toString()
                         if (exchangeRate != null) {
                             Log.d("Taggg", exchangeRate)
-                            binding.conversionRate.text = exchangeRate
-                            val amount = binding.amount.toString()
-                            showconversion(exchangeRate)
+                            binding.conversionRate.text = "Conversion rate: ${exchangeRate}"
+                            val amount = binding.amount.text.toString()
+                            showconversion(exchangeRate, amount)
                         } else {
                             Log.d("Taggg", "Exchange rate is null")
                         }
@@ -64,18 +70,21 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })
+//            binding.lottiemain.visibility = View.INVISIBLE
         }
     }
 
-    private fun showconversion(rate:String)  {
-//        val am = amount
-//        val toint = am.toDouble()
-//        val ratee = rate.toDouble()
-//        val finrate  = binding.conversionRate.toString()
-//        val toint = finrate.toInt()
-//        val resss =
+    private fun showconversion(rate: String, amount: String) {
 
-        binding.result.text = (rate.toDouble() * 1000).toString()
+        val fin = if (amount.isNotEmpty()) {
+            amount.toDouble()
+        } else {
+            0.0
+        }
+        Toast.makeText(this, fin.toString(), Toast.LENGTH_LONG).show()
+
+        binding.result.text = (rate.toDouble() * fin).toString()
 
     }
+
 }
