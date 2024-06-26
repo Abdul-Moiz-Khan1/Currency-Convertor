@@ -2,6 +2,8 @@ package com.example.currencyconvertor
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding.convertButton.setOnClickListener {
 
             binding.lottiemain.visibility = View.VISIBLE
-            binding.lottiemain.setAnimation(R.raw.money_rain)
+            Handler(Looper.getMainLooper()).postDelayed({binding.lottiemain.visibility = View.INVISIBLE},3000)
 
             from = binding.to.text.toString()
             to = binding.from.text.toString()
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(p0: Call<Response>, p1: retrofit2.Response<Response>) {
                     val responseBody = p1.body()
                     if (p1.isSuccessful && responseBody != null) {
+                        binding.lottiemain.setAnimation(R.raw.money_rain)
                         binding.lottiemain.playAnimation()
                         exchangeRate =
                             responseBody.RealtimeCurrencyExchange?.ExchangeRate.toString()
