@@ -1,1 +1,2 @@
-A simple currency Converter that is still under Process
+A simple currency Converter that is built using  kotlin
+
